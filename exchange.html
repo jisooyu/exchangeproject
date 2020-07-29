@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+<head>   
+    <title>Exhange Calculation</title>
+    <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="exchange.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Currency Conversion<i class="fa fa-calculator"></i></h1>
+        <p>Amount</p>
+        <input type="text" id="convertAmount" maxlength="20">
+        
+        <p>From</p>
+        <select name="convert" id="convertFrom">
+            <option value="">--Country--</option>
+            <option value="korea">Korea</option>
+            <option value="us">US</option>
+            <option value="japan">Japan</option>
+            <option value="china">China</option>
+            <option value="philippine">Philippine</option>
+        </select>
+        
+        <p>To</p>
+        <select name="holding" id="convertTo">
+            <option value="">--Country--</option>
+            <option value="korea">Korea</option>
+            <option value="us">US</option>
+            <option value="japan">Japan</option>
+            <option value="china">China</option>
+            <option value="philippine">Philippine</option>
+        </select>
+
+        <button id="convert">Convert</button>
+        <p>Converted Currency: <span id="currencyDisplay"></span><span id="currencyName"></span></p>
+        <button id="reset">Reset</button>
+    </div>
+    
+</body>
+<script src="exchange.js"></script>
+</html>
