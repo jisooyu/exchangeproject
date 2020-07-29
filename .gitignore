@@ -2,3 +2,5 @@ node_modules/
 exchange_copy.html
 exchange_copy.js
 exchange_org.css
+package.json
+package-lock.json
