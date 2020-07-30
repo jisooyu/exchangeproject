@@ -6,6 +6,13 @@ const convert = document.querySelector("#convert")
 const display = document.querySelector("#currencyDisplay");
 const currency = document.querySelector("#currencyName")
 
+fetch('/exchange').then (response => {
+    return response.json()
+}).then (data => {
+    conversionRates = data.rates
+}).catch(error => console.log(error))
+
+
 const countryKey = {
     korea: "KRW",
     us: "USD",
