@@ -1,21 +1,3 @@
-// reference site: https://www.exchangerate-api.com/docs/free-exchange-rate-api
-// const myAPI = "4a327ab0a3ea9a0bfa16118e"  
-
-const url = "https://open.exchangerate-api.com/v6/latest"
-
-
-fetch(url)
-.then(response =>{
-    console.log(response)
-    return response.json()
-})
-.then(data =>{
-    console.log(data.rates)
-    conversionRates = data.rates
-})
-.catch(error => console.log(error))
-
-
 const convertAmount = document.querySelector( '#convertAmount' );
 const convertFrom = document.querySelector( '#convertFrom' );
 const convertTo = document.querySelector('#convertTo');
