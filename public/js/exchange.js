@@ -9,7 +9,7 @@ const currency = document.querySelector("#currencyName")
 fetch('/exchange').then (response => {
     return response.json()
 }).then (data => {
-    conversionRates = data.rates
+    conversionRates = data.conversionRates
 }).catch(error => console.log(error))
 
 
@@ -40,7 +40,6 @@ const conversion = (amount, from, to) =>{
         if (to === "USD"){
             return Math.round(amount / from)
         } else {
-            console.log(from)
             return Math.round(amount / from * to)
         }
     }
@@ -57,13 +56,13 @@ convertFrom.addEventListener("change", () => {
 
 convertTo.addEventListener( 'change', () => {
     const toCountryKey = countryKey[convertTo.value]
-    currency.appendChild(document.createTextNode(` ${toCountryKey}`))
+    currency.textContent = toCountryKey
     toRate = parseFloat(conversionRates[toCountryKey])
 } );
 
 convert.addEventListener('click', ()=>{
     const convertedCurrency = conversion(amount, fromRate, toRate)
-    display.appendChild(document.createTextNode(convertedCurrency));   
+    display.textContent = convertedCurrency.toLocaleString()  
 })
 
 reset.addEventListener('click', () => {

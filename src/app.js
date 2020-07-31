@@ -1,4 +1,3 @@
-
 const path = require('path')
 const express = require('express')
 const request = require("request")
@@ -18,7 +17,6 @@ const viewsPath = path.join(__dirname, '../templates/views')
 const partialsPath = path.join(__dirname, '../templates/partials')
 /***** Define path for Express config(End)*******************/
 
-
 /****** Setup handlebars and view engine(Start)**************/
 // view engine을 hbs로 setting
 app.set('view engine', 'hbs')
@@ -28,7 +26,6 @@ app.set('views', viewsPath)
 
 // hbs register -> setting templates/partials path 
 hbs.registerPartials(partialsPath)
-
 /****** Setup handlebars and view engine(End)**************/
 
 // Setup directory to serve
@@ -36,14 +33,22 @@ app.use(express.static(publicDirectoryPath))
 
 app.get('', (req, res) =>{
     res.render('index', {
-        title: 'exhangeRate',
+        title: 'foreignExchange',
         name:'Jisoo Yu'
     })
 })
 app.get('/exchange', (req,res)=>{
-    exchangeRates()
-})
+    exchangeRates( ( error, rates ) => {
+        if ( error ) {
+            res.send(error)
+        } else {
+            res.send( {
+                conversionRates: rates
+            } )
+        }
 
+    })
+})
 
 app.listen(port, () =>{
     console.log(`Server is up on port ${port}.`)
